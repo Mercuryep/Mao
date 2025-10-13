@@ -12,119 +12,135 @@
         }
         
         body {
+            font-family: 'Arial Rounded MT Bold', 'Microsoft YaHei', sans-serif;
             background-color: #a8c0c4;
             background-image: url('https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/maoandmao.png');
             background-repeat: repeat;
-            background-size: 100px 100px;
+            background-size: 80px 80px;
+            color: #333333;
+            line-height: 1.4;
+            padding: 8px;
             min-height: 100vh;
-            padding: 10px;
-        }
-        
-        /* 整个界面就是一个大图片容器 */
-        .image-container {
-            max-width: 100%;
             position: relative;
         }
         
-        /* 所有可点击区域 */
-        .click-area {
+        /* 顶部大标题 */
+        .title-container {
+            text-align: center;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .title-image {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .help-button {
             position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background: url('https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/help.png') no-repeat center;
+            background-size: contain;
+            border: none;
             cursor: pointer;
         }
         
-        /* 底部固定按钮 */
-        .bottom-buttons {
+        /* 文件夹形状区域 */
+        .folder-container {
+            background-image: url('https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/FOLDER.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            padding: 30px 20px;
+            min-height: 400px;
+            margin-bottom: 60px; /* 为底部文字留出空间 */
+        }
+        
+        /* 文字区域 */
+        .text-content {
+            margin-bottom: 20px;
+        }
+        
+        .welcome-text {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .instruction-text {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        
+        /* 链接区域 */
+        .links-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+        
+        .link-item {
+            display: block;
+        }
+        
+        .link-image {
+            width: 70px;
+            height: 70px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .horse-link {
+            display: block;
+            margin: 15px auto;
+            text-align: center;
+        }
+        
+        .horse-image {
+            width: 80px;
+            height: 80px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        /* 猫人气泡区域 */
+        .cat-bubble {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .bubble-image {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* 底部固定文字 */
+        .bottom-text {
             position: fixed;
             bottom: 10px;
-            left: 10px;
-            right: 10px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            color: white;
+            text-shadow: 0 0 2px rgba(0,0,0,0.5);
+            z-index: 10;
         }
         
-        .text-button {
-            background: none;
-            border: none;
-            color: transparent;
-            font-size: 1px;
+        .text-link {
+            color: white;
+            text-decoration: underline;
             cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <!-- 主界面图片 -->
-    <div class="image-container">
-        <!-- 主界面背景图（包含所有视觉元素） -->
-        <img src="https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/mao_interface.png" alt="猫世界界面" style="width:100%">
-        
-        <!-- 问号按钮（使用您的图片） -->
-        <a href="help.html" class="click-area" style="top:15px; right:15px; width:30px; height:30px;">
-            <img src="https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/help.png" alt="帮助" style="width:100%">
-        </a>
-        
-        <!-- 紫色小生物链接1 -->
-        <a href="https://magistream.com/creature/16154779" class="click-area" style="top:180px; left:30px; width:60px; height:60px;"></a>
-        
-        <!-- 紫色小生物链接2 -->
-        <a href="https://magistream.com/creature/16154996" class="click-area" style="top:180px; left:100px; width:60px; height:60px;"></a>
-        
-        <!-- 紫色小生物链接3 -->
-        <a href="https://magistream.com/creature/16154961" class="click-area" style="top:180px; left:170px; width:60px; height:60px;"></a>
-        
-        <!-- 马乃介链接 -->
-        <a href="https://finaloutpost.net/view/Uf43e/" class="click-area" style="top:250px; left:120px; width:70px; height:70px;"></a>
-        
-        <!-- 猫之页导航 -->
-        <a href="index.html" class="click-area" style="top:80px; left:20px; width:80px; height:30px;"></a>
-        
-        <!-- 犬之页导航 -->
-        <a href="dog.html" class="click-area" style="top:80px; left:110px; width:80px; height:30px;"></a>
-    </div>
-    
-    <!-- 底部透明按钮（用于弹窗触发） -->
-    <div class="bottom-buttons">
-        <button class="text-button" onclick="showModal('catModal')">我是猫</button>
-        <button class="text-button" onclick="showModal('notCatModal')">我不是猫</button>
-    </div>
-    
-    <!-- 弹窗1：我是猫 -->
-    <div id="catModal" class="modal">
-        <div class="modal-content">
-            <h3>猫。</h3>
-            <p>你猫了</p>
-            <button class="close-button" onclick="closeModal('catModal')">还有两次机会</button>
-        </div>
-    </div>
-    
-    <!-- 弹窗2：我不是猫 -->
-    <div id="notCatModal" class="modal">
-        <div class="modal-content">
-            <h3>猫。</h3>
-            <p>你没猫</p>
-            <button class="close-button" onclick="closeModal('notCatModal')">老大我们回家吧</button>
-        </div>
-    </div>
-
-    <script>
-        // 弹窗控制
-        function showModal(modalId) {
-            document.getElementById(modalId).style.display = 'flex';
+            margin: 0 5px;
         }
         
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-        
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-            }
-        }
-    </script>
-    
-    <style>
-        /* 弹窗样式 */
+        /* 弹窗 */
         .modal {
             display: none;
             position: fixed;
@@ -146,15 +162,95 @@
             max-width: 250px;
         }
         
-        .close-button {
-            background: #4a7ba6;
+        .close-btn {
+            background: #3a6390;
             color: white;
             border: none;
-            padding: 8px 15px;
+            padding: 6px 12px;
             border-radius: 5px;
-            margin-top: 15px;
+            margin-top: 10px;
             cursor: pointer;
         }
     </style>
+</head>
+<body>
+    <!-- 顶部大标题 -->
+    <div class="title-container">
+        <img src="https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/mao%20world.png" alt="猫世界" class="title-image">
+        <button class="help-button" onclick="location.href='help.html'"></button>
+    </div>
+    
+    <!-- 文件夹形状区域 -->
+    <div class="folder-container">
+        <!-- 文字内容 -->
+        <div class="text-content">
+            <p class="welcome-text">欢迎来到猫之页，我是猫。</p>
+            <p class="instruction-text">请点击它们吧，来自我喜欢的网页游戏</p>
+            <p class="instruction-text">每隔一段更新这里的蛋/幼崽!</p>
+            <p class="instruction-text">也可以点点我的马乃介，他一直在这里</p>
+        </div>
+        
+        <!-- 紫色小生物链接 -->
+        <div class="links-container">
+            <a href="https://magistream.com/creature/16154779" class="link-item" target="_blank">
+                <img src="https://magistream.com/img/16154779.gif" class="link-image">
+            </a>
+            <a href="https://magistream.com/creature/16154996" class="link-item" target="_blank">
+                <img src="https://magistream.com/img/16154996.gif" class="link-image">
+            </a>
+            <a href="https://magistream.com/creature/16154961" class="link-item" target="_blank">
+                <img src="https://magistream.com/img/16154961.gif" class="link-image">
+            </a>
+        </div>
+        
+        <!-- 马乃介链接 -->
+        <a href="https://finaloutpost.net/view/Uf43e/" class="horse-link" target="_blank">
+            <img src="https://finaloutpost.net/s/Uf43e.png" class="horse-image">
+        </a>
+        
+        <!-- 猫人气泡 -->
+        <div class="cat-bubble">
+            <img src="https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/mao_speak.png" class="bubble-image">
+        </div>
+    </div>
+    
+    <!-- 底部固定文字 -->
+    <div class="bottom-text">
+        <span class="text-link" onclick="showModal('catModal')">我是猫</span>
+        <span class="text-link" onclick="showModal('notCatModal')">我不是猫</span>
+    </div>
+    
+    <!-- 弹窗 -->
+    <div id="catModal" class="modal">
+        <div class="modal-content">
+            <h3>猫。</h3>
+            <p>你猫了</p>
+            <button class="close-btn" onclick="closeModal('catModal')">还有两次机会</button>
+        </div>
+    </div>
+    
+    <div id="notCatModal" class="modal">
+        <div class="modal-content">
+            <h3>猫。</h3>
+            <p>你没猫</p>
+            <button class="close-btn" onclick="closeModal('notCatModal')">老大我们回家吧</button>
+        </div>
+    </div>
+
+    <script>
+        function showModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+        
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
