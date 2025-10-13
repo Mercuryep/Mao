@@ -20,17 +20,17 @@
             color: #333;
             line-height: 1.4;
             min-height: 100vh;
-            position: relative;
+            padding: 10px;
         }
         
-        /* 顶部渐变遮罩 - 使用您指定的颜色 */
+        /* 顶部渐变遮罩 - 延长覆盖区域 */
         body::before {
             content: '';
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 120px;
+            height: 200px;
             background: linear-gradient(to bottom, #50586D, rgba(80, 88, 109, 0));
             pointer-events: none;
             z-index: 1;
@@ -40,23 +40,23 @@
         .header-container {
             position: relative;
             text-align: center;
-            margin: 10px auto;
+            margin: 0 auto 15px auto;
             max-width: 300px;
             z-index: 2;
         }
         
         .title-image {
-            width: 280px;
+            width: 250px;
             height: auto;
         }
         
-        /* 问号图标 - 精确位置调整 */
+        /* 问号图标 - 精确调整位置和大小 */
         .help-button {
             position: absolute;
             top: 5px;
-            right: -10px;
-            width: 40px;
-            height: 40px;
+            right: -5px;
+            width: 45px;
+            height: 45px;
             background: url('https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/help.png') no-repeat center;
             background-size: contain;
             border: none;
@@ -71,12 +71,13 @@
             margin: 0 auto;
             position: relative;
             z-index: 2;
+            padding-top: 5px;
         }
         
         .tab {
             flex: 1;
             text-align: center;
-            padding: 8px;
+            padding: 8px 5px;
             background: #E8D8C3;
             border-radius: 8px 8px 0 0;
             font-size: 14px;
@@ -87,16 +88,18 @@
         
         .tab.active {
             background: #ffffff;
-            border-bottom: none;
         }
         
-        /* 文件夹内容区域 */
+        /* 文件夹内容区域 - 确保显示文件夹图片 */
         .folder-content {
             max-width: 300px;
             margin: 0 auto;
-            background: white;
+            background-image: url('https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/FOLDER.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center top;
             border-radius: 0 0 10px 10px;
-            padding: 20px;
+            padding: 25px 20px 20px 20px;
             min-height: 500px;
             position: relative;
             z-index: 2;
@@ -104,39 +107,46 @@
         
         /* 欢迎文字 - 更大更粗 */
         .welcome-title {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
             color: #333;
             margin-bottom: 15px;
             line-height: 1.3;
         }
         
-        /* 说明文字 - 使用您指定的颜色 */
+        /* 说明文字 - 使用指定颜色 */
         .instruction-text {
+            font-size: 14px;
+            color: #3F4049;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        
+        /* 更新说明文字 - 稍小一点 */
+        .update-text {
             font-size: 13px;
             color: #3F4049;
-            margin-bottom: 8px;
-            line-height: 1.3;
+            margin: 5px 0 10px 0;
         }
         
         /* 马乃介说明文字 - 加粗蓝绿色 */
         .horse-text {
-            font-size: 13px;
+            font-size: 14px;
             color: #4C99AC;
             font-weight: bold;
             margin: 15px 0 8px 0;
         }
         
-        /* 链接容器 - 自动换行 */
+        /* 链接容器 - 自动换行，移除黑边 */
         .links-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
             margin: 10px 0;
             justify-content: flex-start;
         }
         
-        /* 链接图片 - 保持原始大小 */
+        /* 链接图片 - 保持原始大小，移除边框 */
         .link-item {
             display: block;
         }
@@ -146,13 +156,14 @@
             height: auto;
             max-width: 70px;
             max-height: 70px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            /* 移除边框 */
+            border: none;
+            border-radius: 0;
         }
         
         /* 猫人气泡区域 */
         .cat-bubble {
-            margin-top: 20px;
+            margin: 20px 0;
             text-align: center;
         }
         
@@ -161,30 +172,32 @@
             height: auto;
         }
         
-        /* 底部问题文字 */
+        /* 底部问题文字 - 白色 */
         .question-text {
             text-align: center;
-            font-size: 12px;
-            color: #333;
-            margin: 30px 0 15px 0;
+            font-size: 13px;
+            color: white;
+            margin: 20px 0 10px 0;
             line-height: 1.3;
+            text-shadow: 0 0 3px rgba(0,0,0,0.7);
         }
         
-        /* 底部交互按钮 - 正常定位，不固定 */
+        /* 底部交互按钮 - 白色文字，靠近底部 */
         .interaction-buttons {
             text-align: center;
-            margin: 20px 0 50px 0;
+            margin: 10px 0 20px 0;
         }
         
         .cat-button {
             background: none;
             border: none;
-            color: #3a6390;
-            font-size: 12px;
+            color: white;
+            font-size: 13px;
             text-decoration: underline;
             cursor: pointer;
             margin: 0 10px;
             padding: 5px;
+            text-shadow: 0 0 3px rgba(0,0,0,0.7);
         }
         
         /* 弹窗 */
@@ -255,7 +268,7 @@
         </div>
         
         <!-- 更新说明 -->
-        <p class="instruction-text">每隔一段更新这里的蛋/幼崽!</p>
+        <p class="update-text">每隔一段更新这里的蛋/幼崽!</p>
         
         <!-- 马乃介说明 -->
         <p class="horse-text">也可以点点我的马乃介，他一直在这里</p>
