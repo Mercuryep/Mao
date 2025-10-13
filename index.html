@@ -24,7 +24,7 @@
             position: relative;
         }
         
-        /* 顶部渐变遮罩 - 加长覆盖整个标题区域 */
+        /* 顶部渐变遮罩 */
         body::before {
             content: '';
             position: fixed;
@@ -37,7 +37,7 @@
             z-index: 1;
         }
         
-        /* 大标题容器 - 精确调整 */
+        /* 大标题容器 */
         .header-container {
             position: relative;
             text-align: center;
@@ -51,7 +51,7 @@
             height: auto;
         }
         
-        /* 问号图标 - 精确定位在大标题右侧 */
+        /* 问号图标 */
         .help-button {
             position: absolute;
             top: 5px;
@@ -65,24 +65,24 @@
             z-index: 3;
         }
         
-        /* 文件夹容器 - 使用您的图3作为背景 */
+        /* 文件夹容器 */
         .folder-container {
             max-width: 300px;
             margin: 0 auto;
             background-image: url('https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/FOLDER.png');
             background-repeat: no-repeat;
             background-size: 100% 100%;
-            min-height: 600px;
+            min-height: 550px;
             position: relative;
-            padding: 40px 25px 25px 25px;
+            padding: 40px 30px 30px 30px; /* 增加内边距使文字更靠内 */
             z-index: 2;
         }
         
-        /* 文件夹标签文字 - 精确定位在左上角 */
+        /* 文件夹标签文字 */
         .folder-tabs {
             position: absolute;
             top: 15px;
-            left: 25px;
+            left: 30px; /* 调整位置使其更靠内 */
             display: flex;
             gap: 15px;
         }
@@ -97,7 +97,7 @@
             color: #4a7ba6;
         }
         
-        /* 欢迎文字 - 更大更粗 */
+        /* 欢迎文字 */
         .welcome-title {
             font-size: 18px;
             font-weight: bold;
@@ -106,7 +106,7 @@
             line-height: 1.3;
         }
         
-        /* 说明文字 - 精确颜色和大小 */
+        /* 说明文字 */
         .instruction-text {
             font-size: 14px;
             color: #3F4049;
@@ -120,7 +120,7 @@
             margin: 10px 0;
         }
         
-        /* 马乃介说明文字 - 精确颜色 */
+        /* 马乃介说明文字 */
         .horse-text {
             font-size: 14px;
             color: #4C99AC;
@@ -128,7 +128,7 @@
             margin: 15px 0 8px 0;
         }
         
-        /* 链接容器 - 去除黑边，自动换行 */
+        /* 链接容器 */
         .links-container {
             display: flex;
             flex-wrap: wrap;
@@ -141,19 +141,31 @@
             display: block;
         }
         
-        /* 链接图片 - 去除黑边，保持原始大小 */
+        /* 链接图片 - 去除黑边 */
         .link-image {
             width: auto;
             height: auto;
             max-width: 70px;
             max-height: 70px;
-            border: none; /* 去除黑边 */
+            border: none;
             border-radius: 0;
         }
         
-        /* 猫人气泡区域 */
+        /* 马的图片稍大一些 */
+        .horse-image {
+            max-width: 80px;
+            max-height: 80px;
+        }
+        
+        /* 猫人气泡区域 - 放在文件夹底部 */
         .cat-bubble {
             margin-top: 20px;
+            text-align: center;
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            padding: 0 30px;
         }
         
         .bubble-image {
@@ -161,71 +173,37 @@
             height: auto;
         }
         
-        /* 底部问题文字 - 白色，靠近底部 */
-        .question-section {
-            position: absolute;
-            bottom: 60px;
-            left: 0;
-            width: 100%;
+        /* 底部问题区域 - 放在文件夹外面 */
+        .bottom-section {
+            max-width: 300px;
+            margin: 20px auto 0 auto;
             text-align: center;
-            padding: 0 25px;
+            padding: 0 10px;
         }
         
         .question-text {
-            font-size: 14px;
-            color: #333;
-            margin-bottom: 10px;
+            font-size: 12px; /* 更小 */
+            color: white; /* 改为白色 */
+            margin-bottom: 8px;
             line-height: 1.3;
+            text-shadow: 0 0 2px rgba(0,0,0,0.5);
         }
         
-        /* 底部交互按钮 - 白色文字，靠近底部 */
         .interaction-buttons {
             text-align: center;
-            margin-top: 10px;
+            margin-top: 5px;
         }
         
         .cat-button {
             background: none;
             border: none;
-            color: white;
-            font-size: 14px;
+            color: white; /* 改为白色 */
+            font-size: 12px; /* 更小 */
             text-decoration: underline;
             cursor: pointer;
-            margin: 0 10px;
-            padding: 5px;
+            margin: 0 8px;
+            padding: 3px;
             text-shadow: 0 0 2px rgba(0,0,0,0.5);
-        }
-        
-        /* 弹窗 */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal-content {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            max-width: 250px;
-        }
-        
-        .close-btn {
-            background: #3a6390;
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 5px;
-            margin-top: 10px;
-            cursor: pointer;
         }
     </style>
 </head>
@@ -269,25 +247,25 @@
         <!-- 马乃介说明 -->
         <p class="horse-text">也可以点点我的马乃介，他一直在这里</p>
         
-        <!-- 马乃介链接 -->
+        <!-- 马乃介链接 - 稍大一些 -->
         <div class="links-container">
             <a href="https://finaloutpost.net/view/Uf43e/" class="link-item" target="_blank">
-                <img src="https://finaloutpost.net/s/Uf43e.png" class="link-image">
+                <img src="https://finaloutpost.net/s/Uf43e.png" class="link-image horse-image">
             </a>
         </div>
         
-        <!-- 猫人气泡 -->
+        <!-- 猫人气泡 - 放在文件夹底部 -->
         <div class="cat-bubble">
             <img src="https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/mao_speak.png" class="bubble-image">
         </div>
-        
-        <!-- 底部问题文字和按钮 -->
-        <div class="question-section">
-            <div class="question-text">我是猫吗?我是猫吗?我不是猫吗?</div>
-            <div class="interaction-buttons">
-                <button class="cat-button" onclick="showModal('catModal')">我是猫</button>
-                <button class="cat-button" onclick="showModal('notCatModal')">我不是猫</button>
-            </div>
+    </div>
+    
+    <!-- 底部问题区域 - 放在文件夹外面 -->
+    <div class="bottom-section">
+        <div class="question-text">我是猫吗?我是猫吗?我不是猫吗?</div>
+        <div class="interaction-buttons">
+            <button class="cat-button" onclick="showModal('catModal')">我是猫</button>
+            <button class="cat-button" onclick="showModal('notCatModal')">我不是猫</button>
         </div>
     </div>
     
