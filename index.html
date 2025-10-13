@@ -21,6 +21,8 @@
             line-height: 1.5;
             padding: 10px;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         
         /* 顶部渐变遮罩 */
@@ -30,7 +32,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 200px;
+            height: 150px;
             background: linear-gradient(to bottom, #a8c0c4, rgba(168, 192, 196, 0));
             pointer-events: none;
             z-index: -1;
@@ -42,16 +44,18 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         /* 头部标题区域 */
         .header {
             background: linear-gradient(135deg, #6d9dc5, #4a7ba6);
-            padding: 15px 20px;
+            padding: 12px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            position: relative;
         }
         
         .title-area {
@@ -61,16 +65,16 @@
         }
         
         .title-image {
-            height: 50px;
+            height: 40px;
         }
         
         .help-link {
             color: white;
             text-decoration: none;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: bold;
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             border: 2px solid white;
             border-radius: 50%;
             display: flex;
@@ -88,11 +92,12 @@
         .tab {
             flex: 1;
             text-align: center;
-            padding: 12px;
+            padding: 10px;
             font-weight: bold;
             color: #666;
             border-bottom: 3px solid transparent;
             cursor: pointer;
+            font-size: 14px;
         }
         
         .tab.active {
@@ -100,39 +105,45 @@
             border-bottom-color: #4a7ba6;
         }
         
-        /* 主内容区域 - 使用你的文件夹图片作为背景 */
+        /* 主内容区域 */
         .main-content {
-            padding: 25px 20px;
+            padding: 20px;
             background-image: url('https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/FOLDER.png');
             background-size: 100% auto;
             background-repeat: no-repeat;
             background-position: center top;
-            min-height: 60vh;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .welcome-message {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         
         .welcome-message h2 {
             color: #4a7ba6;
-            margin-bottom: 10px;
-            font-size: 18px;
+            margin-bottom: 8px;
+            font-size: 16px;
         }
         
         .welcome-message p {
-            margin-bottom: 8px;
-            font-size: 14px;
+            margin-bottom: 6px;
+            font-size: 13px;
             color: #555;
         }
         
-        /* 链接网格布局 */
+        /* 链接区域 - 明确分隔 */
+        .links-section {
+            margin-bottom: 15px;
+        }
+        
         .links-grid {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
-            margin: 20px 0 30px 0;
+            margin: 10px 0;
         }
         
         .link-item {
@@ -142,49 +153,48 @@
         }
         
         .link-image {
+            width: 70px;
+            height: 70px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        /* 马乃介单独区域 */
+        .horse-section {
+            margin: 15px 0 20px 0;
+            text-align: center;
+        }
+        
+        .horse-section .link-image {
             width: 80px;
             height: 80px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            transition: transform 0.3s;
         }
         
-        .link-item:hover .link-image {
-            transform: scale(1.05);
-        }
-        
-        /* 猫猫说话区域 */
-        .cat-message {
+        /* 猫人气泡区域 - 只有图片，没有文字 */
+        .cat-bubble {
             text-align: center;
-            margin-top: 30px;
+            margin-top: auto;
+            padding-top: 20px;
         }
         
         .cat-image {
-            max-width: 250px;
-            margin: 0 auto 15px;
-            display: block;
+            max-width: 220px;
+            margin: 0 auto;
         }
         
-        .cat-message p {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-        
-        /* 底部交互按钮 */
+        /* 底部交互按钮 - 固定在页面最底端 */
         .interaction-section {
             text-align: center;
-            padding: 20px;
+            padding: 15px 20px;
             background: #f5f5f5;
             border-top: 1px solid #ddd;
+            margin-top: auto;
         }
         
         .interaction-buttons {
             display: flex;
             justify-content: center;
-            gap: 25px;
-            margin-top: 10px;
+            gap: 20px;
         }
         
         .text-button {
@@ -192,15 +202,9 @@
             border: none;
             color: #4a7ba6;
             text-decoration: underline;
-            font-size: 16px;
+            font-size: 14px;
             cursor: pointer;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        
-        .text-button:hover {
-            background-color: rgba(74, 123, 166, 0.1);
+            padding: 6px 12px;
         }
         
         /* 弹窗样式 */
@@ -219,10 +223,10 @@
         
         .modal-content {
             background: white;
-            padding: 30px;
-            border-radius: 15px;
+            padding: 25px;
+            border-radius: 12px;
             text-align: center;
-            max-width: 280px;
+            max-width: 260px;
             margin: 20px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.2);
         }
@@ -231,11 +235,11 @@
             background: #4a7ba6;
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            margin-top: 15px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            margin-top: 12px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
         }
     </style>
 </head>
@@ -266,31 +270,35 @@
                 <p>也可以点点我的马乃介，他一直在这里</p>
             </div>
             
-            <!-- 链接网格 -->
-            <div class="links-grid">
-                <a href="https://magistream.com/creature/16154779" class="link-item" target="_blank">
-                    <img src="https://magistream.com/img/16154779.gif" alt="生物1" class="link-image">
-                </a>
-                <a href="https://magistream.com/creature/16154996" class="link-item" target="_blank">
-                    <img src="https://magistream.com/img/16154996.gif" alt="生物2" class="link-image">
-                </a>
-                <a href="https://magistream.com/creature/16154961" class="link-item" target="_blank">
-                    <img src="https://magistream.com/img/16154961.gif" alt="生物3" class="link-image">
-                </a>
+            <!-- 紫色小生物链接区域 -->
+            <div class="links-section">
+                <div class="links-grid">
+                    <a href="https://magistream.com/creature/16154779" class="link-item" target="_blank">
+                        <img src="https://magistream.com/img/16154779.gif" alt="生物1" class="link-image">
+                    </a>
+                    <a href="https://magistream.com/creature/16154996" class="link-item" target="_blank">
+                        <img src="https://magistream.com/img/16154996.gif" alt="生物2" class="link-image">
+                    </a>
+                    <a href="https://magistream.com/creature/16154961" class="link-item" target="_blank">
+                        <img src="https://magistream.com/img/16154961.gif" alt="生物3" class="link-image">
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 马乃介单独区域 -->
+            <div class="horse-section">
                 <a href="https://finaloutpost.net/view/Uf43e/" class="link-item" target="_blank">
                     <img src="https://finaloutpost.net/s/Uf43e.png" alt="马乃介" class="link-image">
                 </a>
             </div>
             
-            <!-- 猫猫说话区域 -->
-            <div class="cat-message">
-                <img src="https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/mao_speak.png" alt="猫猫" class="cat-image">
-                <p>想要做一个关于我的东西，之后会在犬之页更新，现在只是需要一个人的孵化站，我是鱿。</p>
-                <p>我是猫吗?我是猫吗?我不是猫吗?</p>
+            <!-- 猫人气泡区域 - 只有图片 -->
+            <div class="cat-bubble">
+                <img src="https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/mao_speak.png" alt="猫猫气泡" class="cat-image">
             </div>
         </div>
         
-        <!-- 底部交互按钮 -->
+        <!-- 底部交互按钮 - 固定在页面最底端 -->
         <div class="interaction-section">
             <div class="interaction-buttons">
                 <button class="text-button" onclick="showModal('catModal')">我是猫</button>
