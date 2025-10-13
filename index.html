@@ -1,10 +1,323 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <title>我的网站</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猫的世界</title>
+    <style>
+        /* 基础样式 */
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial Rounded MT Bold', 'Microsoft YaHei', sans-serif;
+            background-color: #a8c0c4; /* 灰蓝色背景 */
+            background-image: url('https://example.com/background-pattern.png'); /* 替换为你的背景图URL */
+            background-repeat: repeat;
+            background-size: 200px 200px; /* 调整背景图案大小 */
+            color: #333;
+            min-height: 100vh;
+        }
+        
+        /* 容器样式 */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        /* 页眉样式 */
+        header {
+            background: linear-gradient(135deg, #6d9dc5, #4a7ba6);
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .title-image {
+            height: 80px;
+            cursor: pointer;
+        }
+        
+        .help-link {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .help-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+        
+        /* 导航标签样式 */
+        .tabs {
+            display: flex;
+            background-color: #e0e0e0;
+            padding: 0 20px;
+        }
+        
+        .tab {
+            padding: 12px 25px;
+            cursor: pointer;
+            font-weight: bold;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .tab.active {
+            border-bottom: 3px solid #4a7ba6;
+            color: #4a7ba6;
+        }
+        
+        /* 主内容区样式 - 可自动延伸 */
+        .main-content {
+            padding: 30px;
+            min-height: 400px;
+            background-image: url('https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/FOLDER.png'); /* 文件夹贴图 */
+            background-repeat: repeat-y;
+            background-size: 100% auto;
+        }
+        
+        .welcome-message {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .links-section {
+            margin-bottom: 30px;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .link-item {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.3s;
+        }
+        
+        .link-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .link-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+        }
+        
+        .cat-message {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .cat-image {
+            max-width: 200px;
+            margin: 0 auto 15px;
+            display: block;
+        }
+        
+        /* 底部交互区样式 */
+        .interaction-section {
+            text-align: center;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-top: 1px solid #ddd;
+        }
+        
+        .interaction-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+        }
+        
+        .text-button {
+            background: none;
+            border: none;
+            color: #4a7ba6;
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: inherit;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .text-button:hover {
+            background-color: rgba(74, 123, 166, 0.1);
+        }
+        
+        /* 弹窗样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 300px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .close-button {
+            background: #4a7ba6;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body>
-    <h1>我成功了！</h1>
-    <p>这是我的GitHub Pages网站。</p>
+    <div class="container">
+        <!-- 页眉区域 -->
+        <header>
+            <a href="help.html" class="help-link">?</a>
+            <div class="header-content">
+                <a href="index.html">
+                    <img src="https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/mao%20world.png" alt="猫世界" class="title-image">
+                </a>
+            </div>
+        </header>
+        
+        <!-- 导航标签 -->
+        <div class="tabs">
+            <div class="tab active" onclick="location.href='index.html'">猫之页</div>
+            <div class="tab" onclick="location.href='dog.html'">犬之页</div>
+        </div>
+        
+        <!-- 主内容区 - 可自动延伸 -->
+        <div class="main-content">
+            <div class="welcome-message">
+                <h2>欢迎来到猫之页，我是猫。</h2>
+                <p>请点击它们吧，来自我喜欢的网页游戏</p>
+            </div>
+            
+            <div class="links-section">
+                <p>每隔一段更新这里的蛋/幼崽!</p>
+                <p>也可以点点我的马乃介，他一直在这里</p>
+                
+                <div class="links-grid">
+                    <!-- 链接图片1 -->
+                    <a href="https://magistream.com/creature/16154779">
+                        <img src="https://magistream.com/img/16154779.gif">
+                    </a>
+                    
+                    <!-- 链接图片2 -->
+                    <a href="https://magistream.com/creature/16154996">
+                        <img src="https://magistream.com/img/16154996.gif">
+                    </a>
+                    
+                    <!-- 链接图片3 -->
+                    <a href="https://magistream.com/creature/16154961">
+                        <img src="https://magistream.com/img/16154961.gif">
+                    </a>
+                    
+                    <!-- 马的链接图片 -->
+                    <a href='https://finaloutpost.net/view/Uf43e/'>
+                        <img src='https://finaloutpost.net/s/Uf43e.png'>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="cat-message">
+                <img src="https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/mao_speak.png" alt="猫人形象" class="cat-image">
+                <p>想要做一个关于我的东西，之后会在犬之页更新，现在只是需要一个人的孵化站，我是鱿。</p>
+                <p>我是猫吗?我是猫吗?我不是猫吗?</p>
+            </div>
+        </div>
+        
+        <!-- 底部交互区 -->
+        <div class="interaction-section">
+            <div class="interaction-buttons">
+                <button class="text-button" onclick="showModal('catModal')">我是猫</button>
+                <button class="text-button" onclick="showModal('notCatModal')">我不是猫</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 弹窗1：我是猫 -->
+    <div id="catModal" class="modal">
+        <div class="modal-content">
+            <h3>猫。</h3>
+            <p>你猫了</p>
+            <button class="close-button" onclick="closeModal('catModal')">还有两次机会</button>
+        </div>
+    </div>
+    
+    <!-- 弹窗2：我不是猫 -->
+    <div id="notCatModal" class="modal">
+        <div class="modal-content">
+            <h3>猫。</h3>
+            <p>你没猫</p>
+            <button class="close-button" onclick="closeModal('notCatModal')">老大我们回家吧</button>
+        </div>
+    </div>
+
+    <script>
+        // 弹窗控制函数
+        function showModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+        
+        // 点击弹窗外部关闭弹窗
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
