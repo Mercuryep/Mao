@@ -51,20 +51,6 @@
             height: auto;
         }
         
-        /* 问号图标 */
-        .help-button {
-            position: absolute;
-            top: 5px;
-            right: -25px;
-            width: 45px;
-            height: 45px;
-            background: url('https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/help.png') no-repeat center;
-            background-size: contain;
-            border: none;
-            cursor: pointer;
-            z-index: 3;
-        }
-        
         /* 文件夹容器 */
         .folder-container {
             max-width: 300px;
@@ -74,7 +60,7 @@
             background-size: 100% 100%;
             min-height: 550px;
             position: relative;
-            padding: 40px 30px 30px 30px; /* 增加内边距使文字更靠内 */
+            padding: 40px 30px 30px 30px;
             z-index: 2;
         }
         
@@ -82,7 +68,7 @@
         .folder-tabs {
             position: absolute;
             top: 15px;
-            left: 30px; /* 调整位置使其更靠内 */
+            left: 30px;
             display: flex;
             gap: 15px;
         }
@@ -176,15 +162,15 @@
         /* 底部问题区域 - 放在文件夹外面 */
         .bottom-section {
             max-width: 300px;
-            margin: 20px auto 0 auto;
+            margin: 20px auto 10px auto; /* 更贴近底部 */
             text-align: center;
             padding: 0 10px;
         }
         
         .question-text {
-            font-size: 12px; /* 更小 */
-            color: white; /* 改为白色 */
-            margin-bottom: 8px;
+            font-size: 12px;
+            color: white;
+            margin-bottom: 5px; /* 减小间距 */
             line-height: 1.3;
             text-shadow: 0 0 2px rgba(0,0,0,0.5);
         }
@@ -194,24 +180,19 @@
             margin-top: 5px;
         }
         
-        .cat-button {
-            background: none;
-            border: none;
-            color: white; /* 改为白色 */
-            font-size: 12px; /* 更小 */
-            text-decoration: underline;
-            cursor: pointer;
+        /* 改为普通文字，无下划线 */
+        .cat-text {
+            color: white;
+            font-size: 12px;
             margin: 0 8px;
-            padding: 3px;
             text-shadow: 0 0 2px rgba(0,0,0,0.5);
         }
     </style>
 </head>
 <body>
-    <!-- 大标题和问号 -->
+    <!-- 大标题 - 已删除问号 -->
     <div class="header-container">
         <img src="https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/mao%20world.png" alt="猫世界" class="title-image">
-        <button class="help-button" onclick="location.href='help.html'"></button>
     </div>
     
     <!-- 文件夹容器 -->
@@ -264,42 +245,9 @@
     <div class="bottom-section">
         <div class="question-text">我是猫吗?我是猫吗?我不是猫吗?</div>
         <div class="interaction-buttons">
-            <button class="cat-button" onclick="showModal('catModal')">我是猫</button>
-            <button class="cat-button" onclick="showModal('notCatModal')">我不是猫</button>
+            <span class="cat-text">我是猫</span>
+            <span class="cat-text">我不是猫</span>
         </div>
     </div>
-    
-    <!-- 弹窗 -->
-    <div id="catModal" class="modal">
-        <div class="modal-content">
-            <h3>猫。</h3>
-            <p>你猫了</p>
-            <button class="close-btn" onclick="closeModal('catModal')">还有两次机会</button>
-        </div>
-    </div>
-    
-    <div id="notCatModal" class="modal">
-        <div class="modal-content">
-            <h3>猫。</h3>
-            <p>你没猫</p>
-            <button class="close-btn" onclick="closeModal('notCatModal')">老大我们回家吧</button>
-        </div>
-    </div>
-
-    <script>
-        function showModal(modalId) {
-            document.getElementById(modalId).style.display = 'flex';
-        }
-        
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-        
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-            }
-        }
-    </script>
 </body>
 </html>
