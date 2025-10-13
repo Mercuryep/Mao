@@ -24,28 +24,34 @@
             position: relative;
         }
         
-        /* 顶部大标题 */
+        /* 顶部大标题 - 精确调整 */
         .title-container {
             text-align: center;
             margin-bottom: 15px;
             position: relative;
+            height: 60px; /* 固定高度确保问号精确定位 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .title-image {
-            max-width: 100%;
-            height: auto;
+            height: 45px; /* 缩小标题大小 */
+            width: auto;
+            max-width: 70%; /* 防止过大 */
         }
         
         .help-button {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 30px;
-            height: 30px;
+            top: 5px; /* 精确调整垂直位置 */
+            right: 15px; /* 精确调整水平位置 */
+            width: 35px; /* 增大问号大小 */
+            height: 35px;
             background: url('https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/help.png') no-repeat center;
             background-size: contain;
             border: none;
             cursor: pointer;
+            z-index: 10; /* 确保问号在标题之上 */
         }
         
         /* 文件夹形状区域 */
@@ -55,7 +61,7 @@
             background-repeat: no-repeat;
             padding: 30px 20px;
             min-height: 400px;
-            margin-bottom: 60px; /* 为底部文字留出空间 */
+            margin-bottom: 60px;
         }
         
         /* 文字区域 */
@@ -174,7 +180,7 @@
     </style>
 </head>
 <body>
-    <!-- 顶部大标题 -->
+    <!-- 顶部大标题 - 已精确调整 -->
     <div class="title-container">
         <img src="https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/mao%20world.png" alt="猫世界" class="title-image">
         <button class="help-button" onclick="location.href='help.html'"></button>
