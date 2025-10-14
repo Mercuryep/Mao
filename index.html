@@ -24,7 +24,7 @@
             position: relative;
         }
         
-        /* 顶部渐变遮罩 */
+        /*渐变*/
         body::before {
             content: '';
             position: fixed;
@@ -37,7 +37,7 @@
             z-index: 1;
         }
         
-        /* 大标题容器 */
+        /*大标题*/
         .header-container {
             position: relative;
             text-align: center;
@@ -51,7 +51,7 @@
             height: auto;
         }
         
-        /* 文件夹容器 */
+        /*板子*/
         .folder-container {
             max-width: 300px;
             margin: 0 auto;
@@ -64,7 +64,7 @@
             z-index: 2;
         }
         
-        /* 文件夹标签文字 */
+        /*字*/
         .folder-tabs {
             position: absolute;
             top: 18px;
@@ -79,7 +79,7 @@
             color: #333;
         }
         
-        /* 欢迎文字 */
+        /*欢迎*/
         .welcome-title {
             font-size: 20px;
             font-weight: bold;
@@ -89,7 +89,7 @@
             line-height: 1.3;
         }
         
-        /* 说明文字 */
+        /*说明*/
         .instruction-text {
             font-size: 14px;
             color: #3F4049;
@@ -103,7 +103,7 @@
             margin: 10px 0;
         }
         
-        /* 马说明文字 */
+        /*马马*/
         .horse-text {
             font-size: 14px;
             color: #4C99AC;
@@ -111,7 +111,7 @@
             margin: 15px 0 8px 0;
         }
         
-        /* 链接容器 */
+        /*链接*/
         .links-container {
             display: flex;
             flex-wrap: wrap;
@@ -124,7 +124,7 @@
             display: block;
         }
         
-        /* 链接图片 - 去除黑边 */
+        /*链接图片*/
         .link-image {
             width: auto;
             height: auto;
@@ -134,13 +134,13 @@
             border-radius: 0;
         }
         
-        /* 马的图片稍大一些 */
+        /*马马放大*/
         .horse-image {
             max-width: 100px;
             max-height: 100px;
         }
         
-        /* 猫人气泡区域 - 放在文件夹底部 */
+        /*猫之迷思*/
         .cat-bubble {
             margin-top: 20px;
             text-align: center;
@@ -156,7 +156,7 @@
             height: auto;
         }
         
-        /* 底部问题区域 - 放在文件夹外面 */
+        /*字放外面*/
         .bottom-section {
             max-width: 300px;
             margin: 20px auto 10px auto; /* 更贴近底部 */
@@ -167,7 +167,7 @@
         .question-text {
             font-size: 10px;
             color: white;
-            margin-bottom: 3px; /* 减小间距 */
+            margin-bottom: 3px;
             line-height: 1.3;
             text-shadow: 0 0 2px rgba(0,0,0,0.5);
         }
@@ -177,7 +177,6 @@
             margin-top: 5px;
         }
         
-        /* 改为普通文字，无下划线 */
         .cat-text {
             color: white;
             font-size: 10px;
@@ -187,26 +186,25 @@
     </style>
 </head>
 <body>
-    <!-- 大标题 - 已删除问号 -->
     <div class="header-container">
         <img src="https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/mao%20world.png" alt="猫世界" class="title-image">
     </div>
     
-    <!-- 文件夹容器 -->
+    <!--板子-->
     <div class="folder-container">
-        <!-- 文件夹标签文字 -->
+        <!--猫犬-->
         <div class="folder-tabs">
             <div class="tab active">猫之页</div>
             <div class="tab">犬之页</div>
         </div>
         
-        <!-- 欢迎文字 -->
+        <!--欢迎-->
         <div class="welcome-title">欢迎来到猫之页，我是猫。</div>
         
-        <!-- 说明文字 -->
+        <!--说明-->
         <p class="instruction-text">请点击它们吧，来自我喜欢的网页游戏</p>
         
-        <!-- 链接区域 -->
+        <!--孵化站-->
         <div class="links-container">
             <a href="https://magistream.com/creature/16154779" class="link-item" target="_blank">
                 <img src="https://magistream.com/img/16154779.gif" class="link-image">
@@ -240,26 +238,24 @@
             </a>
         </div>
         
-        <!-- 更新说明 -->
         <p class="update-text">每隔一段更新这里的蛋/幼崽!</p>
         
-        <!-- 马说明 -->
         <p class="horse-text">也可以点点我的马乃介，他一直在这里</p>
         
-        <!-- 马链接 - 稍大一些 -->
+        <!--马大达内-->
         <div class="links-container">
             <a href="https://finaloutpost.net/view/Uf43e/" class="link-item" target="_blank">
                 <img src="https://finaloutpost.net/s/Uf43e.png" class="link-image horse-image">
             </a>
         </div>
         
-        <!-- 猫人气泡 - 放在文件夹底部 -->
+        <!--猫之迷思往下一点-->
         <div class="cat-bubble">
             <img src="https://raw.githubusercontent.com/Mercuryep/Mao/refs/heads/main/images/mao_speak.png" class="bubble-image">
         </div>
     </div>
     
-    <!-- 底部问题区域 - 放在文件夹外面 -->
+    <!--猫在外-->
     <div class="bottom-section">
         <div class="question-text">我是猫吗?我是猫吗?我不是猫吗?</div>
         <div class="interaction-buttons">
